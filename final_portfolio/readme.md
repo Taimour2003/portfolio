@@ -33,4 +33,4 @@ A sleek, modern personal portfolio to showcase my journey as a computer science 
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/yourusername/your-portfolio-repo.git
+git clone https://github.com/Taimour2003/portfolio.git
