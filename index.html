@@ -1,0 +1,66 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taimour Tariq - Portfolio</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <div id="nav-container"></div>
+    <div id="hero-container"></div>
+    <div id="about-container"></div>
+    <div id="experience-container"></div>
+    <div id="projects-container"></div>
+    <div id="skills-container"></div>
+    <div id="contact-container"></div>
+    <div id="footer-container"></div>
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      emailjs.init({ publicKey: "rZM5okVVtppV6MXX6" });
+    </script>
+    <script src="script.js"></script>
+    <script>
+      async function loadPartial(file, targetId) {
+        try {
+          const response = await fetch(file);
+          if (!response.ok) throw new Error("Failed to load " + file);
+          const html = await response.text();
+          document.getElementById(targetId).innerHTML = html;
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      Promise.all([
+        loadPartial("partials/nav.html", "nav-container"),
+        loadPartial("partials/hero.html", "hero-container"),
+        loadPartial("partials/about.html", "about-container"),
+        loadPartial("partials/experience.html", "experience-container"),
+        loadPartial("partials/projects.html", "projects-container"),
+        loadPartial("partials/skills.html", "skills-container"),
+        loadPartial("partials/contact.html", "contact-container"),
+        loadPartial("partials/footer.html", "footer-container"),
+      ]).then(() => {
+        if (window.initPortfolio) {
+          window.initPortfolio();
+        }
+      });
+    </script>
+  </body>
+</html>
